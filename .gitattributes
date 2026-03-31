@@ -1,1 +1,36 @@
-* text eol=lf
+# git
+.git*		eol=lf
+
+# doc
+*.md		eol=lf
+*.txt		eol=lf
+
+# script
+mvnw		eol=lf
+*.sh		eol=lf
+*.cmd		eol=crlf
+*.cli		eol=lf
+*.conf		eol=lf
+
+# resource
+.sdkmanrc	eol=lf
+*.properties	eol=lf
+*.config	eol=lf
+*.xml		eol=lf
+*.env		eol=lf
+*.yaml		eol=lf
+*.json		eol=lf
+*.sql		eol=lf
+*.wsdl		eol=lf
+*.xsd		eol=lf
+*.xslt		eol=lf
+*.drl		eol=lf
+*.js		eol=lf
+*.xhtml		eol=lf
+*.html		eol=lf
+*.css		eol=lf
+*.svg		eol=lf
+
+# source
+*.java		eol=lf
+*.groovy	eol=lf

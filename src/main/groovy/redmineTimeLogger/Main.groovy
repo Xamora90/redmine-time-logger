@@ -1,27 +1,26 @@
 package redmineTimeLogger
 
-
 import groovy.json.JsonSlurper
 
 class Main {
-  
-  static void main(String[] args) {
-    if (args.size() < 1) {
+
+  static void main(final String[] args) {
+    if (args.length < 1) {
       throw new IllegalArgumentException('Needs redmine and user config files, or the common directory')
     }
-    
+
     final Map<String, Object> config = parseArgs(args)
 
 //    CalendarEventCollector calendarEventCollector = new CalendarEventCollector()
 //    calendarEventCollector.collect(args[0] + '\\', 'hubert.annamaria@tigra.hu', '.ical.zip')
-    RedmineTimeLogger redmineTimeLogger = new RedmineTimeLogger()
+    final RedmineTimeLogger redmineTimeLogger = new RedmineTimeLogger()
     redmineTimeLogger.run(config)
   }
-  
-  static Map<String, Object> parseArgs(String[] args) {
+
+  static Map<String, Object> parseArgs(final String[] args) {
     final File redmineConfigFile
     final File userConfigFile
-    if(args.size() == 1) {
+    if (args.size() == 1) {
       redmineConfigFile = new File(args[0], 'redmine-config.json')
       userConfigFile = new File(args[0], 'user-config.json')
     } else {

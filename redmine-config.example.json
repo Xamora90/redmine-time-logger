@@ -1,0 +1,17 @@
+{
+  "uri": "https://redmine.url",
+  "newIssueStatusName": "Új",
+  "excludedIssueStatusesInJournal": [
+    "Tesztelhető",
+    "Lezárva"
+  ],
+  "activities": [
+    {
+      "Meeting": "Megbeszélés"
+    }
+  ],
+  "creationLoggedOnParent": [
+    "Bug",
+    "Feladat"
+  ]
+}

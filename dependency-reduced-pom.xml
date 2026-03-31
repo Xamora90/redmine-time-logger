@@ -68,16 +68,14 @@
   </build>
   <properties>
     <maven.compiler.release>17</maven.compiler.release>
-    <version.commons.cli>1.6.0</version.commons.cli>
+    <version.commons.cli>1.11.0</version.commons.cli>
     <maven.compiler.source>${maven.compiler.release}</maven.compiler.source>
-    <version.org.apache.groovy>4.0.6</version.org.apache.groovy>
-    <version.maven.compiler>3.10.1</version.maven.compiler>
-    <version.org.mnode.ical4j>4.0.0-rc5</version.org.mnode.ical4j>
-    <version.groovy.json>4.0.16</version.groovy.json>
+    <version.org.apache.groovy>5.0.5</version.org.apache.groovy>
+    <version.maven.compiler>3.15.0</version.maven.compiler>
     <maven.compiler.target>${maven.compiler.release}</maven.compiler.target>
     <version.com.taskadapter>4.0.0.rc4</version.com.taskadapter>
-    <version.org.codehaus.gmavenplus>1.13.1</version.org.codehaus.gmavenplus>
-    <version.maven.jar>3.3.0</version.maven.jar>
-    <version.maven.shade>3.4.0</version.maven.shade>
+    <version.org.codehaus.gmavenplus>4.3.1</version.org.codehaus.gmavenplus>
+    <version.maven.jar>3.5.0</version.maven.jar>
+    <version.maven.shade>3.6.2</version.maven.shade>
   </properties>
 </project>

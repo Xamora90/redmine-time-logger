@@ -1,0 +1,13 @@
+{
+  "apiKey": "api_key_here",
+  "projects": ["project 1", "project 2"],
+  "startDate": "2026-03-17",
+  "generalActivity": "Development",
+  "additionalActivities": [
+    {
+      "issue": "1111111",
+      "hours": "0.5",
+      "activity": "Megbeszélés"
+    }
+  ]
+}

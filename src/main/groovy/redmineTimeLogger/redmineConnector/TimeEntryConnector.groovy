@@ -6,39 +6,39 @@ import com.taskadapter.redmineapi.bean.TimeEntry
 import com.taskadapter.redmineapi.internal.ResultsWrapper
 import com.taskadapter.redmineapi.internal.Transport
 import redmineTimeLogger.Constants
-import redmineTimeLogger.util.DateUtil
 import redmineTimeLogger.domain.RedmineUserActivity
+import redmineTimeLogger.util.DateUtil
 
 import java.time.LocalDate
 import java.time.ZoneId
 
 class TimeEntryConnector {
-  
+
   private TimeEntryManager timeEntryManager
   private Transport transport
   Integer currentUserId
-  
-  TimeEntryConnector(RedmineManager redmineManager, Integer currentUserId) {
+
+  TimeEntryConnector(final RedmineManager redmineManager, final Integer currentUserId) {
     timeEntryManager = redmineManager.timeEntryManager
     transport = redmineManager.transport
     this.currentUserId = currentUserId
   }
-  
+
   Map<String, Integer> getActivityNamesWithId() {
     timeEntryManager.getTimeEntryActivities().collectEntries { [it.name, it.id] }
   }
-  
-  Map<LocalDate, List<TimeEntry>> processTrackedTimeEntries(LocalDate startDate) {
-    Map params = [
+
+  Map<LocalDate, List<TimeEntry>> processTrackedTimeEntries(final LocalDate startDate) {
+    final Map params = [
         'user_id': currentUserId as String,
         'from'   : startDate.format(Constants.DATE_FORMATTER),
         'limit'  : '100'
     ]
-    List<TimeEntry> timeEntries = []
+    final List<TimeEntry> timeEntries = []
     int offset = 0
-    ResultsWrapper<TimeEntry> results
+    final ResultsWrapper<TimeEntry> results
     do {
-      Map newParams = new HashMap(params)
+      final Map newParams = new HashMap(params)
       newParams.put('offset', offset as String)
       results = timeEntryManager.getTimeEntries(newParams)
       timeEntries.addAll(results.results)
@@ -48,16 +48,17 @@ class TimeEntryConnector {
       DateUtil.convertToLocalDate(it.spentOn)
     }
   }
-  
-  void createTimeEntries(List<RedmineUserActivity> userActivities) {
+
+  void createTimeEntries(final List<RedmineUserActivity> userActivities) {
     userActivities.each {
       final TimeEntry timeEntry = createTimeEntry(it)
+      println("Creating time entry for issue ${it.issueId} on ${it.date} with ${it.hours} hours")
       timeEntryManager.createTimeEntry(timeEntry)
     }
   }
-  
-  private TimeEntry createTimeEntry(RedmineUserActivity userActivity) {
-    TimeEntry timeEntry = new TimeEntry(transport)
+
+  private TimeEntry createTimeEntry(final RedmineUserActivity userActivity) {
+    final TimeEntry timeEntry = new TimeEntry(transport)
     timeEntry.setIssueId(userActivity.issueId)
     timeEntry.setUserId(currentUserId)
     timeEntry.setActivityId(userActivity.activityId)

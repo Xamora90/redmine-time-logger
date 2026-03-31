@@ -5,7 +5,7 @@ import groovy.transform.TupleConstructor
 import java.time.LocalDate
 
 @TupleConstructor
- class RedmineUserActivity {
+class RedmineUserActivity {
   Integer issueId
   LocalDate date
   Float hours
